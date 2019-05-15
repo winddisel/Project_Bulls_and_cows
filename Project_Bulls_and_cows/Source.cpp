@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Header.h"
 #include <time.h>
+#include <windows.h>
 using namespace std;
 
 void main()

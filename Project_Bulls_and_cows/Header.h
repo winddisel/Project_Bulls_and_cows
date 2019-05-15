@@ -4,6 +4,7 @@ void printResult();
 void Help();
 void Exit();
 using namespace std;
+#include <windows.h>
 
 struct GameResult
 {
@@ -22,6 +23,7 @@ void printResult()
 void Help()
 {
 	system("cls");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
 	cout << "Программа загадывает четырёхзначное число и играющий должен угадать его.\n\
 После ввода пользователем числа программа сообщает,\nсколько цифр числа угадано(быки) и сколько цифр угадано\
 и стоит на нужном месте(коровы).\nПосле отгадывания числа на экран необходимо вывести количество сделанных\
