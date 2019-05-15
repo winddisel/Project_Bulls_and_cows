@@ -15,9 +15,9 @@ struct GameResult
 
 void printResult()
 {
-	cout << endl << "Кол-о коров = " << GameResult1.cow << endl;
-	cout << endl << "Кол-о быков = " << GameResult1.bull << endl;
-	cout << "Кол-во попыток = " << GameResult1.Try;
+	cout << endl << "\t\t\tКол-о коров = " << GameResult1.cow << endl;
+	cout << endl << "\t\t\tКол-о быков = " << GameResult1.bull << endl;
+	cout << "\n\t\t\tКол-во попыток = " << GameResult1.Try;
 }
 
 void Help()
@@ -25,15 +25,25 @@ void Help()
 	system("cls");
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
 	cout << "Программа загадывает четырёхзначное число и играющий должен угадать его.\n\
-После ввода пользователем числа программа сообщает,\nсколько цифр числа угадано(быки) и сколько цифр угадано\
-и стоит на нужном месте(коровы).\nПосле отгадывания числа на экран необходимо вывести количество сделанных\
-пользователем попыток.";
+После ввода пользователем числа программа сообщает,\nсколько цифр числа угадано(";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
+	cout << "быки";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
+	cout << ") и сколько цифр угадано и стоит на нужном месте(";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
+	cout << "коровы";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
+	cout<<").\nПосле отгадывания числа на экран необходимо вывести количество сделанных\
+ пользователем попыток.";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
 	system("pause>NULL");
 	system("cls");
 }
 
 void Exit() {
 	system("cls");
+	cout << endl<<endl<<"\t\t\t            G A M E    O V E R . ."<<endl;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
 	printResult();
 	system("pause>NULL");
 	exit(0);
