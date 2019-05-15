@@ -56,7 +56,8 @@ int Core(int arc[], int size, int popitka)
 			if (arc_chislo[i] == arc[j]) GameResult1.bull++;
 			if (GameResult1.bull > 4) break;
 		}
-		cout << arc[i] << " " << arc_chislo[i] << endl;
+		printArc(i, arc, arc_chislo);
+		//cout << arc[i] << " " << arc_chislo[i] << endl;
 	}
 
 	printResult();

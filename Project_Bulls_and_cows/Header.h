@@ -1,5 +1,6 @@
 #pragma once
 int Core(int arc[], int size, int popitka);
+void printArc(int i, int arc[], int arc2[]);
 void printResult();
 void Help();
 void Exit();
@@ -13,11 +14,18 @@ struct GameResult
 	int Try;
 }GameResult1;
 
+void printArc(int i, int arc[],int arc2[])
+{
+	cout << arc[i] << " " << arc2[i] << endl;
+}
+
 void printResult()
 {
-	cout << endl << "\t\t\tКол-о коров = " << GameResult1.cow << endl;
-	cout << endl << "\t\t\tКол-о быков = " << GameResult1.bull << endl;
-	cout << "\n\t\t\tКол-во попыток = " << GameResult1.Try;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
+	cout << endl << "\t\t\tКол-о коров    = " << GameResult1.cow << endl;
+	cout << endl << "\t\t\tКол-о быков    = " << GameResult1.bull << endl;
+	        cout << "\n\t\t\tКол-во попыток = " << GameResult1.Try;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
 }
 
 void Help()
