@@ -69,7 +69,7 @@ int Core(int arc[], int size, int popitka, char resp)
 		for (int j = 0; j < size; j++)
 		{
 			if (arc_chislo[i] == arc[j]) GameResult1.bull++;
-			if (GameResult1.bull >=4) break;
+			if (GameResult1.bull >4) break;
 		}
 		//printArc(i, arc, arc_chislo);
 		if (resp == 'Y'  || resp == 'y') printArc(i, arc_chislo,cow);
