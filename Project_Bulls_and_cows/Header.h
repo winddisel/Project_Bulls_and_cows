@@ -1,6 +1,7 @@
 #pragma once
-int Core(int arc[], int size, int popitka);
+int Core(int arc[], int size, int popitka, char res);
 void printArc(int i, int arc[], int arc2[]);
+void printArc(int i, int arc2[], char c);
 void printResult();
 void Help();
 void Exit();
@@ -19,12 +20,21 @@ void printArc(int i, int arc[],int arc2[])
 	cout << arc[i] << " " << arc2[i] << endl;
 }
 
+void printArc(int i, int arc2[],char c)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
+	cout << c;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
+	cout<<" " << arc2[i] << endl;
+}
+
 void printResult()
 {
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
 	cout << endl << "\t\t\tКол-о коров    = " << GameResult1.cow << endl;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
 	cout << endl << "\t\t\tКол-о быков    = " << GameResult1.bull << endl;
-	        cout << "\n\t\t\tКол-во попыток = " << GameResult1.Try;
+	cout << "\n\t\t\tКол-во попыток = " << GameResult1.Try;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
 }
 
@@ -42,8 +52,9 @@ void Help()
 	cout << "коровы";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
 	cout<<").\nПосле отгадывания числа на экран необходимо вывести количество сделанных\
- пользователем попыток.";
+ пользователем попыток.\n";
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
+	cout << "Для выхода из игры нажмите 0, или наберите exit";
 	system("pause>NULL");
 	system("cls");
 }
