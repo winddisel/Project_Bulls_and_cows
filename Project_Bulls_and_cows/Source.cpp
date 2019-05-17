@@ -3,11 +3,10 @@
 #include <time.h>
 #include <windows.h>
 using namespace std;
-/*ПРОВЕРЬ ВСЕ КОМЕНТЫ !*/
 void main()
 {
 	setlocale(0, "RUS");
-	//srand(time(NULL));
+	srand(time(NULL));
 
 	//Начальные значения:
 	char response;
@@ -36,14 +35,16 @@ void main()
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
 	cin >> response;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
+	
 	Core(arc_ugadai, 4, GameResult1.Try, response);
+
 	Exit();
 	system("pause>NULL");
 }
 
 int Core(int arc[], int size, int popitka, char resp)
 {
-	char cow=' ';
+	char cow;
 	GameResult1.Try = popitka;
 	int chislo;
 	int arc_chislo[4];
@@ -51,7 +52,6 @@ int Core(int arc[], int size, int popitka, char resp)
 	GameResult1.bull = 0;
 	cout << endl << endl;
 
-	
 	cout << "Please insert number minimum 1000 ->";
 	cin >> chislo;
 
@@ -59,19 +59,19 @@ int Core(int arc[], int size, int popitka, char resp)
 
 	for (int i = 0; i < size; i++)
 	{
+		cow = '\0';
 		arc_chislo[i] = chislo % 10;
 		chislo = chislo / 10;
 		if (arc_chislo[i] == arc[i])
 		{
 			GameResult1.cow++;
-			cow = 'c';
+			cow = 99;
 		}
 		for (int j = 0; j < size; j++)
 		{
 			if (arc_chislo[i] == arc[j]) GameResult1.bull++;
-			if (GameResult1.bull >4) break;
 		}
-		//printArc(i, arc, arc_chislo);
+		//Перегрузка функции PrintArc
 		if (resp == 'Y'  || resp == 'y') printArc(i, arc_chislo,cow);
 		if (resp == 'N'  || resp == 'n') printArc(i, arc, arc_chislo);
 	}
