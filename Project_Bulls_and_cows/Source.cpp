@@ -18,7 +18,10 @@ void main()
 	ugadai = rand() % 8999 + 1000;
 	//int arc_ugadai[size];
 	int *arc_ugadai = new int[size];
-	Help();       //Старт..
+	
+	GameScreen(); //Пошла заставка
+	
+	Help();       //Информация
 	
 	//Получение поэлементно цифр загадочного числа:
 	//Запихиваем их в массив аrc_ugadai
@@ -27,6 +30,8 @@ void main()
 		arc_ugadai[i] = ugadai % 10;
 		ugadai = ugadai / 10;
 	}
+
+	
 
 	//Диалог. Выбор режима игры
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
@@ -61,7 +66,7 @@ int Core(int arc[], int size, int popitka, char resp)
 	cout << "Please insert number minimum 1000 ->";
 	cin >> *chislo;
 
-	if (chislo == 0) Exit();
+	if (*chislo == 0) Exit();
 
 	for (int i = 0; i < size; i++)
 	{

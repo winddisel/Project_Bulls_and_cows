@@ -4,6 +4,7 @@ void printArc(int i, int arc[], int arc2[]);
 void printArc(int i, int arc2[], char c);
 void printResult();
 void gotoxy(int x, int y);
+void GameScreen();
 void Help();
 void Exit();
 using namespace std;
@@ -44,11 +45,46 @@ void printResult()
 }
 
 void gotoxy(int x, int y)
-{
+{//ф.перевода курсора по координатам
 	COORD p = { x,y };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), p);
 }
 
+void GameScreen()
+{//Заствка
+	int x,y;
+	int i = 0;
+	int Font;
+	int Time = 600;
+
+	//Выводим название игры 200 раз случайно, меняя цвет и положение
+	while (i < 200)
+	{
+		x = rand() % 90;
+		y = rand() % 25;
+		gotoxy(x, y);
+		
+		Font = rand() % 20;
+
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), Font);
+		cout << "Cows&Bulls";
+		
+		Sleep(Time);
+		
+		//Ускоряемся:
+
+		if (i == 5) Time=Time >> 2;
+		if (i == 20) Time = Time >> 2;
+		if (i == 40) Time = Time >> 2;
+		if (i == 50) Time = Time >> 1;
+		if (i == 60) Time = Time >> 1;
+		if (i == 70) Time = Time >> 1;
+
+		i++;
+	}
+
+	_getch();
+}
 
 void Help()
 {
@@ -73,12 +109,24 @@ void Help()
 
 void Exit() {
 	system("cls");
-	cout << endl << endl << "\t\t\t            G A M E    O V E R . ."<<endl;
+	cout << endl << endl << "\t\t\t            G A M E    O V E R";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
+	cout << ". .. .." << endl;
 	Sleep(600);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
 	system("cls");
-	cout << endl << endl << "\t\t\t            G A M E    O V E R . " << endl;
+	cout << endl << endl << "\t\t\t            G A M E    O V E R";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
+	cout << ". .." << endl;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
 	Sleep(200);
 	system("cls");
+	cout << endl << endl << "\t\t\t            G A M E    O V E R" << endl;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
+	cout << "." << endl;
+	Sleep(200);
+	system("cls");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
 	cout << endl << endl << "\t\t\t            G A M E    O V E R" << endl;
 	Sleep(200);
 	system("cls");
@@ -103,6 +151,7 @@ void Exit() {
 	cout << endl << endl << "\t\t\t            " << endl;
 	Sleep(200);
 	system("cls");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
 	cout << endl << endl << "\t\t\t           ." << endl;
 	Sleep(150);
 	system("cls");
