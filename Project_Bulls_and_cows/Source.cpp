@@ -16,8 +16,8 @@ void main()
 	int ugadai;
 	const int size = 4;
 	ugadai = rand() % 8999 + 1000;
-	int arc_ugadai[size];
-	
+	//int arc_ugadai[size];
+	int *arc_ugadai = new int[size];
 	Help();       //Старт..
 	
 	//Получение поэлементно цифр загадочного числа:
@@ -41,6 +41,8 @@ void main()
 	Core(arc_ugadai, 4, GameResult1.Try, response);
 
 	Exit();
+
+	delete[] arc_ugadai;
 	system("pause>NULL");
 }
 
@@ -84,8 +86,8 @@ int Core(int arc[], int size, int popitka, char resp)
 	GameResult1.Try++;
 	delete[] arc_chislo;
 
-	//Если быки и коровы !=4 -> Запускаем рекурсию: 
-	if (GameResult1.cow != 4 /*&& GameResult1.bull != 4*/) return Core(arc, 4, GameResult1.Try,resp);
+	//Если коровы !=4 -> Запускаем рекурсию: 
+	if (GameResult1.cow != 4) return Core(arc, 4, GameResult1.Try,resp);
 }
 
 

@@ -3,11 +3,14 @@ int Core(int arc[], int size, int popitka, char res);
 void printArc(int i, int arc[], int arc2[]);
 void printArc(int i, int arc2[], char c);
 void printResult();
+void gotoxy(int x, int y);
 void Help();
 void Exit();
 using namespace std;
 #include <windows.h>
 #include <time.h>
+#include <conio.h>
+#include <ctime>
 
 struct GameResult
 {
@@ -39,6 +42,13 @@ void printResult()
 	cout << "\n\t\t\tКол-во попыток = " << GameResult1.Try;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
 }
+
+void gotoxy(int x, int y)
+{
+	COORD p = { x,y };
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), p);
+}
+
 
 void Help()
 {
