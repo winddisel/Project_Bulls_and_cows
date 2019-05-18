@@ -50,7 +50,8 @@ int Core(int arc[], int size, int popitka, char resp)
 	GameResult1.Try = popitka;
 	int number;
 	int *chislo = &number;
-	int arc_chislo[4];
+	//int arc_chislo[4];
+	int *arc_chislo = new int[4];
 	GameResult1.cow = 0;
 	GameResult1.bull = 0;
 	cout << endl << endl;
@@ -81,9 +82,10 @@ int Core(int arc[], int size, int popitka, char resp)
 
 	printResult();
 	GameResult1.Try++;
+	delete[] arc_chislo;
 
 	//Если быки и коровы !=4 -> Запускаем рекурсию: 
-	if (GameResult1.cow != 4 && GameResult1.bull != 4) return Core(arc, 4, GameResult1.Try,resp);
+	if (GameResult1.cow != 4 /*&& GameResult1.bull != 4*/) return Core(arc, 4, GameResult1.Try,resp);
 }
 
 
